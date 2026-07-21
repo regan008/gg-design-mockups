@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  /* minimal reset — supplied by the artifact runtime, inlined here for standalone hosting */
+  *,*::before,*::after{box-sizing:border-box;}
+  body{margin:0;}
+  img,svg{display:block;max-width:100%;}
+</style>
+<title>Gaia's Guide Atlas — Seven Color Schemes</title>
+</head>
+<body>
+<style>
+  /* ── page chrome (theme-aware) ─────────────────────────────── */
+  :root{
+    --chrome-bg:#e8e4da; --chrome-panel:#fdfcf9; --chrome-ink:#16130f;
+    --chrome-mute:#5f5951; --chrome-rule:#16130f; --chrome-faint:#cfc9bd;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --chrome-bg:#14120f; --chrome-panel:#1d1a16; --chrome-ink:#f2eee6;
+      --chrome-mute:#9e968a; --chrome-rule:#4a443b; --chrome-faint:#2b2721;
+    }
+  }
+  :root[data-theme="dark"]{
+    --chrome-bg:#14120f; --chrome-panel:#1d1a16; --chrome-ink:#f2eee6;
+    --chrome-mute:#9e968a; --chrome-rule:#4a443b; --chrome-faint:#2b2721;
+  }
+  :root[data-theme="light"]{
+    --chrome-bg:#e8e4da; --chrome-panel:#fdfcf9; --chrome-ink:#16130f;
+    --chrome-mute:#5f5951; --chrome-rule:#16130f; --chrome-faint:#cfc9bd;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--chrome-bg); color:var(--chrome-ink);
+    font-family:'Source Serif 4',Georgia,serif; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px 96px;}
+
+  /* ── masthead ──────────────────────────────────────────────── */
+  .masthead{padding:72px 0 40px; border-bottom:1px solid var(--chrome-rule);}
+  .eyebrow{
+    font-family:'Space Mono','Courier New',monospace; font-size:.72rem;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--chrome-mute);
+    margin:0 0 20px;
+  }
+  h1{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:clamp(2.2rem,5.2vw,4rem); line-height:1.02; letter-spacing:-.015em;
+    margin:0 0 24px; text-wrap:balance; max-width:16ch;
+  }
+  .standfirst{font-size:1.15rem; max-width:60ch; margin:0; color:var(--chrome-ink);}
+  .standfirst + .standfirst{margin-top:16px; color:var(--chrome-mute); font-size:1rem;}
+
+  h2.sec{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:1.5rem; letter-spacing:-.01em; margin:0 0 18px;
+  }
+  section.note{padding:44px 0; border-bottom:1px solid var(--chrome-rule);}
+  section.note p{max-width:66ch; margin:0 0 12px;}
+  code{
+    font-family:'Space Mono','Courier New',monospace; font-size:.86em;
+    background:var(--chrome-faint); padding:1px 5px;
+  }
+
+  /* ── scheme panel ──────────────────────────────────────────── */
+  .scheme{padding:64px 0; border-bottom:1px solid var(--chrome-rule);}
+  .scheme-head{display:flex; flex-wrap:wrap; gap:16px 28px; align-items:baseline; margin-bottom:8px;}
+  .scheme-num{
+    font-family:'Space Mono','Courier New',monospace; font-size:.8rem;
+    letter-spacing:.14em; color:var(--chrome-mute);
+  }
+  .scheme-name{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:clamp(1.6rem,3vw,2.3rem); letter-spacing:-.01em; margin:0;
+  }
+  .scheme-why{max-width:64ch; margin:0 0 32px; color:var(--chrome-mute);}
+  .scheme-why b{color:var(--chrome-ink); font-weight:600;}
+
+  /* ── the specimen: renders in the site's real design language ── */
+  .specimen{
+    background:var(--paper-0); color:var(--ink-900);
+    border:4px solid var(--ink-900); box-shadow:10px 10px 0 var(--ink-900);
+    overflow:hidden;
+  }
+  .spec-nav{
+    background:var(--ink-900); color:var(--paper-0);
+    display:flex; flex-wrap:wrap; align-items:center; gap:8px 28px;
+    padding:14px 24px;
+  }
+  .wordmark{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:.82rem; letter-spacing:.34em; text-transform:uppercase; margin-right:auto;
+  }
+  .spec-nav a{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-size:.72rem;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--paper-0);
+    text-decoration:none; border-bottom:2px solid transparent;
+  }
+  .spec-nav a.on{border-bottom-color:var(--primary-500);}
+
+  .spec-hero{padding:44px 24px 40px; border-bottom:4px solid var(--ink-900);}
+  .hero-label{
+    font-family:'Space Mono','Courier New',monospace; font-size:.7rem;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--ink-700);
+    margin:0 0 16px;
+  }
+  .hero-h{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:clamp(1.9rem,4.4vw,3.2rem); line-height:1.04; letter-spacing:-.02em;
+    margin:0 0 20px; text-wrap:balance; max-width:18ch;
+  }
+  .hero-h em{font-style:normal; color:var(--link-600);}
+  .hero-p{margin:0 0 26px; max-width:56ch; font-size:1.05rem; color:var(--ink-700);}
+  .hero-p a{color:var(--link-600); text-decoration-thickness:2px; text-underline-offset:3px;}
+
+  .btn-row{display:flex; flex-wrap:wrap; gap:14px;}
+  .btn{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:.78rem; letter-spacing:.11em; text-transform:uppercase;
+    padding:13px 22px; border:3px solid var(--ink-900); text-decoration:none;
+    display:inline-block;
+  }
+  .btn-fill{background:var(--primary-500); color:var(--on-primary); box-shadow:5px 5px 0 var(--ink-900);}
+  .btn-ghost{background:var(--paper-0); color:var(--ink-900); box-shadow:5px 5px 0 var(--ink-900);}
+
+  .card-row{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    border-bottom:4px solid var(--ink-900);
+  }
+  .card{padding:26px 24px 28px; border-right:4px solid var(--ink-900);}
+  .card:last-child{border-right:none;}
+  .card-tag{
+    font-family:'Space Mono','Courier New',monospace; font-size:.66rem;
+    letter-spacing:.14em; text-transform:uppercase; padding:3px 8px;
+    display:inline-block; margin-bottom:12px; border:2px solid var(--ink-900);
+  }
+  .t-a{background:var(--acc-a-500); color:var(--on-acc-a);}
+  .t-b{background:var(--acc-b-500); color:var(--on-acc-b);}
+  .t-c{background:var(--primary-100); color:var(--ink-900);}
+  .card h4{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:1.22rem; margin:0 0 8px; letter-spacing:-.01em;
+  }
+  .card p{margin:0; font-size:.94rem; color:var(--ink-700);}
+
+  /* listing table — mirrors the Database page */
+  .spec-table{padding:26px 24px 30px; background:var(--paper-50);}
+  .table-cap{
+    font-family:'Space Mono','Courier New',monospace; font-size:.68rem;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--ink-700);
+    margin:0 0 14px;
+  }
+  .tbl-scroll{overflow-x:auto;}
+  table{border-collapse:collapse; width:100%; min-width:520px; font-size:.9rem;}
+  th{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+    text-align:left; padding:9px 12px; background:var(--ink-900); color:var(--paper-0);
+  }
+  td{padding:10px 12px; border-bottom:2px solid var(--ink-900); font-variant-numeric:tabular-nums;}
+  tbody tr:last-child td{border-bottom:none;}
+  td.venue{font-weight:600;}
+  .pill{
+    font-family:'Space Mono','Courier New',monospace; font-size:.66rem;
+    letter-spacing:.08em; text-transform:uppercase; padding:2px 8px;
+    border:2px solid var(--ink-900); white-space:nowrap;
+  }
+  .p-open{background:var(--acc-b-500); color:var(--on-acc-b);}
+  .p-closed{background:var(--paper-100); color:var(--ink-900);}
+
+  /* ── palette chips ─────────────────────────────────────────── */
+  .swatches{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:12px; margin-top:28px;
+  }
+  .sw{border:1px solid var(--chrome-rule); background:var(--chrome-panel);}
+  .sw-chip{height:62px; display:flex; align-items:flex-end; padding:7px 9px;}
+  .sw-chip span{
+    font-family:'Space Mono','Courier New',monospace; font-size:.63rem;
+    letter-spacing:.04em;
+  }
+  .sw-meta{padding:8px 10px 10px;}
+  .sw-role{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif; font-weight:700;
+    font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+    display:block; margin-bottom:3px;
+  }
+  .sw-note{
+    font-family:'Space Mono','Courier New',monospace; font-size:.63rem;
+    color:var(--chrome-mute); display:block;
+  }
+
+  .verdict{
+    margin-top:24px; padding:16px 18px; border-left:4px solid var(--chrome-rule);
+    background:var(--chrome-panel); max-width:70ch;
+  }
+  .verdict b{
+    font-family:Futura,'Century Gothic','Poppins',sans-serif;
+    letter-spacing:.04em; font-size:.8rem; text-transform:uppercase;
+    display:block; margin-bottom:5px;
+  }
+  .verdict p{margin:0; font-size:.94rem; color:var(--chrome-mute);}
+
+  .closing{padding:56px 0 0;}
+  .closing ol{max-width:66ch; padding-left:20px;}
+  .closing li{margin-bottom:12px;}
+  a{color:inherit;}
+  a:focus-visible, .btn:focus-visible{outline:3px solid currentColor; outline-offset:3px;}
+
+  @media (max-width:640px){
+    .card{border-right:none; border-bottom:4px solid var(--ink-900);}
+    .card:last-child{border-bottom:none;}
+    .masthead{padding:48px 0 32px;}
+  }
+
+  /* ══ SCHEME TOKENS ══════════════════════════════════════════ */
+  /* 1 — ACID ARCHIVE · cool light grey ground */
+  [data-s="acid"]{
+    --paper-0:#f2f2ee; --paper-50:#e8e8e2; --paper-100:#dcdcd4;
+    --ink-900:#111111; --ink-700:#2b2b2b;
+    --primary-500:#cfdc00; --primary-600:#5f6a00; --primary-100:#eef2c2;
+    --acc-a-500:#e2571f; --acc-b-500:#0e7a76;
+    --on-primary:#111111; --on-acc-a:#111111; --on-acc-b:#f2f2ee;
+    --link-600:#5f6a00;
+  }
+  /* 2 — SCARLET & BONE · bone-white ground */
+  [data-s="scarlet"]{
+    --paper-0:#fafaf8; --paper-50:#efefec; --paper-100:#e0e0dc;
+    --ink-900:#14100f; --ink-700:#33302c;
+    --primary-500:#cc0f2b; --primary-600:#a80f26; --primary-100:#f7d5d9;
+    --acc-a-500:#b9c900; --acc-b-500:#0d6e6a;
+    --on-primary:#fafaf8; --on-acc-a:#14100f; --on-acc-b:#fafaf8;
+    --link-600:#a80f26;
+  }
+  /* 3 — ATLAS BLUE · pale chart-paper grey */
+  [data-s="atlas"]{
+    --paper-0:#eef1f4; --paper-50:#e3e8ed; --paper-100:#d4dbe3;
+    --ink-900:#0f1520; --ink-700:#2d3644;
+    --primary-500:#1e5bd6; --primary-600:#123a8f; --primary-100:#cfdcf7;
+    --acc-a-500:#ef6a1e; --acc-b-500:#0d6b6a;
+    --on-primary:#eef1f4; --on-acc-a:#0f1520; --on-acc-b:#eef1f4;
+    --link-600:#123a8f;
+  }
+  /* 4 — FIELD NOTES · warm grey-taupe ground */
+  [data-s="field"]{
+    --paper-0:#eeeae0; --paper-50:#e4dfd2; --paper-100:#d6cfbd;
+    --ink-900:#1a2b1f; --ink-700:#38493c;
+    --primary-500:#d99a08; --primary-600:#8a5c00; --primary-100:#f0dfb4;
+    --acc-a-500:#b5442a; --acc-b-500:#5c7043;
+    --on-primary:#1a2b1f; --on-acc-a:#eeeae0; --on-acc-b:#eeeae0;
+    --link-600:#8a5c00;
+  }
+  /* 5 — MIMEOGRAPH · copy-paper grey */
+  [data-s="mimeo"]{
+    --paper-0:#f7f7f5; --paper-50:#ebebe8; --paper-100:#dcdcd8;
+    --ink-900:#0a0a0a; --ink-700:#333333;
+    --primary-500:#ff5c00; --primary-600:#b83a00; --primary-100:#ffdcc7;
+    --acc-a-500:#f5e400; --acc-b-500:#1b3fbf;
+    --on-primary:#0a0a0a; --on-acc-a:#0a0a0a; --on-acc-b:#f7f7f5;
+    --link-600:#b83a00;
+  }
+  /* 6 — HOUSE RED · warm greige ground, plum-charcoal ink */
+  [data-s="house"]{
+    --paper-0:#f0eceb; --paper-50:#e5dfdf; --paper-100:#d6cecf;
+    --ink-900:#241f24; --ink-700:#4a4048;
+    --primary-500:#e8674e; --primary-600:#a82e1a; --primary-100:#f7d9d1;
+    --acc-a-500:#ef9d24; --acc-b-500:#8f3524;
+    --on-primary:#241f24; --on-acc-a:#241f24; --on-acc-b:#f0eceb;
+    --link-600:#a82e1a;
+  }
+  /* 7 — CHARIS · weathered sign-paint */
+  [data-s="charis"]{
+    --paper-0:#e6ebe7; --paper-50:#d9e0db; --paper-100:#c6d2cd;
+    --ink-900:#14403f; --ink-700:#2f5a58;
+    --primary-500:#e8b92d; --primary-600:#7d5a0e; --primary-100:#f5e3ae;
+    --acc-a-500:#8c3a2a; --acc-b-500:#2e6d7a;
+    --on-primary:#14403f; --on-acc-a:#e6ebe7; --on-acc-b:#e6ebe7;
+    --link-600:#7d5a0e;
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Gaia's Guide Atlas — palette study</p>
+    <h1>Seven ways to color the archive</h1>
+    <p class="standfirst">Seven complete replacements for the site's magenta-and-lavender palette. Type, borders, block shadows, spacing and structure are untouched — only the eighteen color primitives in <code>:root</code> change.</p>
+    <p class="standfirst">Each scheme is shown on the real components: nav, hero, the three "Ways to Explore" cards, buttons, and a Database listing row. Every color pairing below has been contrast-checked; ratios are printed on the chips.</p>
+  </header>
+
+  <section class="note">
+    <h2 class="sec">Where these come from</h2>
+    <p>The current palette was lifted from four scanned covers — 1983 lavender, 1987 coral, 1988 chartreuse, 1990 magenta — and then leaned hard on the magenta. But the covers were never a pink series. The 1987 edition is scarlet; the 1988 edition is acid chartreuse. Dropping pink doesn't mean leaving the source material, and three of the seven schemes below are pulled straight from it.</p>
+    <p>Two more answer things the covers don't: that this is an <em>atlas</em>, and that these guides traveled hand to hand as cheaply printed paperbacks. The last two come from the places themselves — a bar interior and a bookstore sign — which is a different and useful kind of source. The covers are how the guide packaged itself; the venues are what it was pointing at.</p>
+    <h2 class="sec" style="margin-top:32px">On the background</h2>
+    <p>Cream was inherited from the scans rather than chosen, and it was quietly costing every scheme some snap — warm paper mutes a cold accent and muddies a warm one. So the ground is now a real variable. Below you'll find cool grey, bone white, chart-paper blue-grey, warm taupe, copy-paper neutral, warm greige, and weathered sign-green. All seven stay light — body text clears 9:1 on every one of them, and three schemes warm or cool the <em>ink</em> off pure black instead, which shifts the mood without touching legibility.</p>
+  </section>
+
+  <!-- ══════════════ 1 ══════════════ -->
+  <section class="scheme" data-s="acid">
+    <div class="scheme-head">
+      <span class="scheme-num">01</span>
+      <h3 class="scheme-name">Acid Archive</h3>
+    </div>
+    <p class="scheme-why">The 1988 cover, taken at full strength. Acid chartreuse against black is the loudest thing in the source material and it already carries the xerox-and-staples energy of a guide that circulated outside official channels. Rust and deep teal keep it from reading as a single-note highlighter. <b>Closest to the current site in attitude — same volume, different hue.</b></p>
+
+    <div class="specimen">
+      <nav class="spec-nav">
+        <span class="wordmark">Gaia's Guide</span>
+        <a href="#0" class="on">Map</a><a href="#0">Database</a><a href="#0">Vignettes</a><a href="#0">Methodology</a><a href="#0">News</a>
+      </nav>
+      <div class="spec-hero">
+        <p class="hero-label">Thirteen editions · 1975–1995</p>
+        <h4 class="hero-h">Mapping Women's <em>Spaces</em></h4>
+        <p class="hero-p">Bars, bookstores, community centers and dropsites, plotted against the years they operated. <a href="#0">Read the methodology</a> for how listings were sourced and verified.</p>
+        <div class="btn-row">
+          <a href="#0" class="btn btn-fill">Open the map</a>
+          <a href="#0" class="btn btn-ghost">Browse listings</a>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="card"><span class="card-tag t-a">Spatial</span><h4>The Map</h4><p>Browse listings by city and see where the network stretched.</p></div>
+        <div class="card"><span class="card-tag t-b">Tabular</span><h4>The Database</h4><p>Search and filter every listing from thirteen digitized editions.</p></div>
+        <div class="card"><span class="card-tag t-c">Context</span><h4>Methodology</h4><p>How listings were verified, and where the archive stays silent.</p></div>
+      </div>
+      <div class="spec-table">
+        <p class="table-cap">Database — sample rows</p>
+        <div class="tbl-scroll"><table>
+          <thead><tr><th>Venue</th><th>City</th><th>Type</th><th>Years</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="venue">Amelia's</td><td>San Francisco</td><td>Bar</td><td>1978–1991</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">Old Wives' Tales</td><td>San Francisco</td><td>Bookstore</td><td>1976–1995</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">A Woman's Place</td><td>Portland</td><td>Dropsite</td><td>1973–1988</td><td><span class="pill p-open">Verified</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><div class="sw-chip" style="background:#cfdc00;color:#111"><span>#cfdc00</span></div><div class="sw-meta"><span class="sw-role">Primary</span><span class="sw-note">ink on fill · 12.5:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#5f6a00;color:#fdfaf4"><span>#5f6a00</span></div><div class="sw-meta"><span class="sw-role">Links</span><span class="sw-note">on paper · 5.7:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#e2571f;color:#111"><span>#e2571f</span></div><div class="sw-meta"><span class="sw-role">Rust accent</span><span class="sw-note">ink on fill · 5.1:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#0e7a76;color:#fdfaf4"><span>#0e7a76</span></div><div class="sw-meta"><span class="sw-role">Teal accent</span><span class="sw-note">paper on fill · 5.0:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#f2f2ee;color:#111;border-bottom:1px solid #ddd"><span>#f2f2ee</span></div><div class="sw-meta"><span class="sw-role">Cool grey ground</span><span class="sw-note">sharpens the acid</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#111111;color:#f2f2ee"><span>#111111</span></div><div class="sw-meta"><span class="sw-role">Ink</span><span class="sw-note">16.8:1</span></div></div>
+    </div>
+    <div class="verdict"><b>Use it if</b><p>You want the redesign to feel continuous with what's there now. It's the least conservative option and the most historically literal one at the same time.</p></div>
+  </section>
+
+  <!-- ══════════════ 2 ══════════════ -->
+  <section class="scheme" data-s="scarlet">
+    <div class="scheme-head">
+      <span class="scheme-num">02</span>
+      <h3 class="scheme-name">Scarlet &amp; Bone</h3>
+    </div>
+    <p class="scheme-why">The 1987 cover's palette on a bone-white ground instead of its mint. Scarlet, chartreuse and teal all sharpen against a near-neutral — the mint was tinting three accents at once and softening the one that mattered. <b>This is now the highest-contrast scheme in the set</b>, and the closest to a poster: black bands, white field, one red doing all the shouting.</p>
+
+    <div class="specimen">
+      <nav class="spec-nav">
+        <span class="wordmark">Gaia's Guide</span>
+        <a href="#0" class="on">Map</a><a href="#0">Database</a><a href="#0">Vignettes</a><a href="#0">Methodology</a><a href="#0">News</a>
+      </nav>
+      <div class="spec-hero">
+        <p class="hero-label">Thirteen editions · 1975–1995</p>
+        <h4 class="hero-h">Mapping Women's <em>Spaces</em></h4>
+        <p class="hero-p">Bars, bookstores, community centers and dropsites, plotted against the years they operated. <a href="#0">Read the methodology</a> for how listings were sourced and verified.</p>
+        <div class="btn-row">
+          <a href="#0" class="btn btn-fill">Open the map</a>
+          <a href="#0" class="btn btn-ghost">Browse listings</a>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="card"><span class="card-tag t-a">Spatial</span><h4>The Map</h4><p>Browse listings by city and see where the network stretched.</p></div>
+        <div class="card"><span class="card-tag t-b">Tabular</span><h4>The Database</h4><p>Search and filter every listing from thirteen digitized editions.</p></div>
+        <div class="card"><span class="card-tag t-c">Context</span><h4>Methodology</h4><p>How listings were verified, and where the archive stays silent.</p></div>
+      </div>
+      <div class="spec-table">
+        <p class="table-cap">Database — sample rows</p>
+        <div class="tbl-scroll"><table>
+          <thead><tr><th>Venue</th><th>City</th><th>Type</th><th>Years</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="venue">Amelia's</td><td>San Francisco</td><td>Bar</td><td>1978–1991</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">Old Wives' Tales</td><td>San Francisco</td><td>Bookstore</td><td>1976–1995</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">A Woman's Place</td><td>Portland</td><td>Dropsite</td><td>1973–1988</td><td><span class="pill p-open">Verified</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><div class="sw-chip" style="background:#cc0f2b;color:#fafaf8"><span>#cc0f2b</span></div><div class="sw-meta"><span class="sw-role">Primary</span><span class="sw-note">ground on fill · 5.5:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#a80f26;color:#fafaf8"><span>#a80f26</span></div><div class="sw-meta"><span class="sw-role">Links</span><span class="sw-note">on ground · 7.3:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#b9c900;color:#14100f"><span>#b9c900</span></div><div class="sw-meta"><span class="sw-role">Chartreuse</span><span class="sw-note">ink on fill · 10.3:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#0d6e6a;color:#fafaf8"><span>#0d6e6a</span></div><div class="sw-meta"><span class="sw-role">Teal accent</span><span class="sw-note">ground on fill · 5.8:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#fafaf8;color:#14100f;border-bottom:1px solid #ddd"><span>#fafaf8</span></div><div class="sw-meta"><span class="sw-role">Bone ground</span><span class="sw-note">mint removed</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#14100f;color:#fafaf8"><span>#14100f</span></div><div class="sw-meta"><span class="sw-role">Ink</span><span class="sw-note">18.1:1</span></div></div>
+    </div>
+    <div class="verdict"><b>One caution</b><p>Red at full brightness drifts toward pink on some displays. The primary is deliberately pulled toward the orange side and darkened to <code>#cc0f2b</code> so it stays decisively scarlet and carries light text — a brighter red sits in a contrast dead zone where neither black nor white passes.</p></div>
+  </section>
+
+  <!-- ══════════════ 3 ══════════════ -->
+  <section class="scheme" data-s="atlas">
+    <div class="scheme-head">
+      <span class="scheme-num">03</span>
+      <h3 class="scheme-name">Atlas Blue</h3>
+    </div>
+    <p class="scheme-why">Not from the covers — from the thing the site actually is. Ink blue, cool chart-paper grey and signal orange is the language of survey maps, nautical charts and index atlases, and it gives the project the register of a research instrument rather than a poster. <b>The most legible of the five and the easiest to defend to an institution or funder.</b> Orange handles map pins and highlights, where blue can't carry emphasis.</p>
+
+    <div class="specimen">
+      <nav class="spec-nav">
+        <span class="wordmark">Gaia's Guide</span>
+        <a href="#0" class="on">Map</a><a href="#0">Database</a><a href="#0">Vignettes</a><a href="#0">Methodology</a><a href="#0">News</a>
+      </nav>
+      <div class="spec-hero">
+        <p class="hero-label">Thirteen editions · 1975–1995</p>
+        <h4 class="hero-h">Mapping Women's <em>Spaces</em></h4>
+        <p class="hero-p">Bars, bookstores, community centers and dropsites, plotted against the years they operated. <a href="#0">Read the methodology</a> for how listings were sourced and verified.</p>
+        <div class="btn-row">
+          <a href="#0" class="btn btn-fill">Open the map</a>
+          <a href="#0" class="btn btn-ghost">Browse listings</a>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="card"><span class="card-tag t-a">Spatial</span><h4>The Map</h4><p>Browse listings by city and see where the network stretched.</p></div>
+        <div class="card"><span class="card-tag t-b">Tabular</span><h4>The Database</h4><p>Search and filter every listing from thirteen digitized editions.</p></div>
+        <div class="card"><span class="card-tag t-c">Context</span><h4>Methodology</h4><p>How listings were verified, and where the archive stays silent.</p></div>
+      </div>
+      <div class="spec-table">
+        <p class="table-cap">Database — sample rows</p>
+        <div class="tbl-scroll"><table>
+          <thead><tr><th>Venue</th><th>City</th><th>Type</th><th>Years</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="venue">Amelia's</td><td>San Francisco</td><td>Bar</td><td>1978–1991</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">Old Wives' Tales</td><td>San Francisco</td><td>Bookstore</td><td>1976–1995</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">A Woman's Place</td><td>Portland</td><td>Dropsite</td><td>1973–1988</td><td><span class="pill p-open">Verified</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><div class="sw-chip" style="background:#1e5bd6;color:#fbf8f1"><span>#1e5bd6</span></div><div class="sw-meta"><span class="sw-role">Primary</span><span class="sw-note">paper on fill · 5.6:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#123a8f;color:#fbf8f1"><span>#123a8f</span></div><div class="sw-meta"><span class="sw-role">Links</span><span class="sw-note">on paper · 9.8:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#ef6a1e;color:#0f1520"><span>#ef6a1e</span></div><div class="sw-meta"><span class="sw-role">Signal orange</span><span class="sw-note">ink on fill · 5.9:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#0d6b6a;color:#fbf8f1"><span>#0d6b6a</span></div><div class="sw-meta"><span class="sw-role">Teal accent</span><span class="sw-note">paper on fill · 6.0:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#eef1f4;color:#0f1520;border-bottom:1px solid #ccd"><span>#eef1f4</span></div><div class="sw-meta"><span class="sw-role">Chart-paper ground</span><span class="sw-note">cool blue-grey</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#0f1520;color:#eef1f4"><span>#0f1520</span></div><div class="sw-meta"><span class="sw-role">Blue-black ink</span><span class="sw-note">16.1:1</span></div></div>
+    </div>
+    <div class="verdict"><b>Use it if</b><p>The map is the front door and the site needs to read as scholarship. It's the safest of the five — which is both the recommendation and the reservation.</p></div>
+  </section>
+
+  <!-- ══════════════ 4 ══════════════ -->
+  <section class="scheme" data-s="field">
+    <div class="scheme-head">
+      <span class="scheme-num">04</span>
+      <h3 class="scheme-name">Field Notes</h3>
+    </div>
+    <p class="scheme-why">Ochre, brick and sage on warm taupe, with the black swapped for a deep forest ink — the only scheme that changes the darkest value, and the change is felt everywhere. This is the seventies press the guides actually came out of: earth tones, uncoated stock, women's-land and back-to-the-land printing. <b>It also takes the name literally.</b> Gaia is the earth; nothing else in the set makes that connection.</p>
+
+    <div class="specimen">
+      <nav class="spec-nav">
+        <span class="wordmark">Gaia's Guide</span>
+        <a href="#0" class="on">Map</a><a href="#0">Database</a><a href="#0">Vignettes</a><a href="#0">Methodology</a><a href="#0">News</a>
+      </nav>
+      <div class="spec-hero">
+        <p class="hero-label">Thirteen editions · 1975–1995</p>
+        <h4 class="hero-h">Mapping Women's <em>Spaces</em></h4>
+        <p class="hero-p">Bars, bookstores, community centers and dropsites, plotted against the years they operated. <a href="#0">Read the methodology</a> for how listings were sourced and verified.</p>
+        <div class="btn-row">
+          <a href="#0" class="btn btn-fill">Open the map</a>
+          <a href="#0" class="btn btn-ghost">Browse listings</a>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="card"><span class="card-tag t-a">Spatial</span><h4>The Map</h4><p>Browse listings by city and see where the network stretched.</p></div>
+        <div class="card"><span class="card-tag t-b">Tabular</span><h4>The Database</h4><p>Search and filter every listing from thirteen digitized editions.</p></div>
+        <div class="card"><span class="card-tag t-c">Context</span><h4>Methodology</h4><p>How listings were verified, and where the archive stays silent.</p></div>
+      </div>
+      <div class="spec-table">
+        <p class="table-cap">Database — sample rows</p>
+        <div class="tbl-scroll"><table>
+          <thead><tr><th>Venue</th><th>City</th><th>Type</th><th>Years</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="venue">Amelia's</td><td>San Francisco</td><td>Bar</td><td>1978–1991</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">Old Wives' Tales</td><td>San Francisco</td><td>Bookstore</td><td>1976–1995</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">A Woman's Place</td><td>Portland</td><td>Dropsite</td><td>1973–1988</td><td><span class="pill p-open">Verified</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><div class="sw-chip" style="background:#d99a08;color:#1a2b1f"><span>#d99a08</span></div><div class="sw-meta"><span class="sw-role">Primary ochre</span><span class="sw-note">ink on fill · 6.1:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#8a5c00;color:#faf6ea"><span>#8a5c00</span></div><div class="sw-meta"><span class="sw-role">Links</span><span class="sw-note">on paper · 5.4:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#b5442a;color:#faf6ea"><span>#b5442a</span></div><div class="sw-meta"><span class="sw-role">Brick accent</span><span class="sw-note">paper on fill · 5.1:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#5c7043;color:#faf6ea"><span>#5c7043</span></div><div class="sw-meta"><span class="sw-role">Sage accent</span><span class="sw-note">paper on fill · 5.0:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#eeeae0;color:#1a2b1f;border-bottom:1px solid #d5d0c4"><span>#eeeae0</span></div><div class="sw-meta"><span class="sw-role">Warm taupe ground</span><span class="sw-note">greyer than cream</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#1a2b1f;color:#eeeae0"><span>#1a2b1f</span></div><div class="sw-meta"><span class="sw-role">Forest ink</span><span class="sw-note">12.4:1 · not black</span></div></div>
+    </div>
+    <div class="verdict"><b>Trade-off</b><p>The quietest option. Softening black to forest green takes some of the graphic punch out of the 4px borders and block shadows — the structure still works, but it stops shouting. Worth it if you want the reading pages to feel like an archive rather than a campaign.</p></div>
+  </section>
+
+  <!-- ══════════════ 5 ══════════════ -->
+  <section class="scheme" data-s="mimeo">
+    <div class="scheme-head">
+      <span class="scheme-num">05</span>
+      <h3 class="scheme-name">Mimeograph</h3>
+    </div>
+    <p class="scheme-why">Near-monochrome, with all the color spent in one place. Black on near-white, safety orange as the only voice above a whisper, highlighter yellow and stamp-pad blue rationed to markers and states. The reference is the distribution method rather than the object: cheap duplication, hand-corrected, passed along. <b>The most contemporary-feeling of the five</b> — and the one where restraint is the whole idea, so it fails if orange creeps into everything.</p>
+
+    <div class="specimen">
+      <nav class="spec-nav">
+        <span class="wordmark">Gaia's Guide</span>
+        <a href="#0" class="on">Map</a><a href="#0">Database</a><a href="#0">Vignettes</a><a href="#0">Methodology</a><a href="#0">News</a>
+      </nav>
+      <div class="spec-hero">
+        <p class="hero-label">Thirteen editions · 1975–1995</p>
+        <h4 class="hero-h">Mapping Women's <em>Spaces</em></h4>
+        <p class="hero-p">Bars, bookstores, community centers and dropsites, plotted against the years they operated. <a href="#0">Read the methodology</a> for how listings were sourced and verified.</p>
+        <div class="btn-row">
+          <a href="#0" class="btn btn-fill">Open the map</a>
+          <a href="#0" class="btn btn-ghost">Browse listings</a>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="card"><span class="card-tag t-a">Spatial</span><h4>The Map</h4><p>Browse listings by city and see where the network stretched.</p></div>
+        <div class="card"><span class="card-tag t-b">Tabular</span><h4>The Database</h4><p>Search and filter every listing from thirteen digitized editions.</p></div>
+        <div class="card"><span class="card-tag t-c">Context</span><h4>Methodology</h4><p>How listings were verified, and where the archive stays silent.</p></div>
+      </div>
+      <div class="spec-table">
+        <p class="table-cap">Database — sample rows</p>
+        <div class="tbl-scroll"><table>
+          <thead><tr><th>Venue</th><th>City</th><th>Type</th><th>Years</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="venue">Amelia's</td><td>San Francisco</td><td>Bar</td><td>1978–1991</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">Old Wives' Tales</td><td>San Francisco</td><td>Bookstore</td><td>1976–1995</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">A Woman's Place</td><td>Portland</td><td>Dropsite</td><td>1973–1988</td><td><span class="pill p-open">Verified</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><div class="sw-chip" style="background:#ff5c00;color:#0a0a0a"><span>#ff5c00</span></div><div class="sw-meta"><span class="sw-role">Safety orange</span><span class="sw-note">ink on fill · 6.4:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#b83a00;color:#fbfbf9"><span>#b83a00</span></div><div class="sw-meta"><span class="sw-role">Links</span><span class="sw-note">on paper · 5.6:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#f5e400;color:#0a0a0a"><span>#f5e400</span></div><div class="sw-meta"><span class="sw-role">Highlighter</span><span class="sw-note">ink on fill · 15.1:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#1b3fbf;color:#fbfbf9"><span>#1b3fbf</span></div><div class="sw-meta"><span class="sw-role">Stamp blue</span><span class="sw-note">paper on fill · 8.1:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#f7f7f5;color:#0a0a0a;border-bottom:1px solid #ddd"><span>#f7f7f5</span></div><div class="sw-meta"><span class="sw-role">Copy-paper ground</span><span class="sw-note">true neutral</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#0a0a0a;color:#f7f7f5"><span>#0a0a0a</span></div><div class="sw-meta"><span class="sw-role">Ink</span><span class="sw-note">18.5:1</span></div></div>
+    </div>
+    <div class="verdict"><b>Note</b><p>The most neutral ground in the set — no warmth, no tint. It costs some archival softness and buys a sharper, more present look. If the site should feel like a working tool rather than a preserved object, this is the one.</p></div>
+  </section>
+
+  <!-- ══════════════ 6 ══════════════ -->
+  <section class="scheme" data-s="house">
+    <div class="scheme-head">
+      <span class="scheme-num">06</span>
+      <h3 class="scheme-name">House Red</h3>
+    </div>
+    <p class="scheme-why">From the bar photograph, remixed onto a light ground. What actually carries that room isn't the darkness — it's the hard-edged mural, coral cut against plum-charcoal in flat geometric planes, which is already doing what this site's borders and offset shadows do. So the plum-charcoal moves into the <b>ink</b> role: every rule, nav bar and block shadow is warmed off pure black, and the room shows up in the structure instead of behind the text. Coral leads, the Edison-bulb amber highlights, a deep brick anchors. Warm all the way through — the only scheme in the set with no cool accent at all.</p>
+
+    <div class="specimen">
+      <nav class="spec-nav">
+        <span class="wordmark">Gaia's Guide</span>
+        <a href="#0" class="on">Map</a><a href="#0">Database</a><a href="#0">Vignettes</a><a href="#0">Methodology</a><a href="#0">News</a>
+      </nav>
+      <div class="spec-hero">
+        <p class="hero-label">Thirteen editions · 1975–1995</p>
+        <h4 class="hero-h">Mapping Women's <em>Spaces</em></h4>
+        <p class="hero-p">Bars, bookstores, community centers and dropsites, plotted against the years they operated. <a href="#0">Read the methodology</a> for how listings were sourced and verified.</p>
+        <div class="btn-row">
+          <a href="#0" class="btn btn-fill">Open the map</a>
+          <a href="#0" class="btn btn-ghost">Browse listings</a>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="card"><span class="card-tag t-a">Spatial</span><h4>The Map</h4><p>Browse listings by city and see where the network stretched.</p></div>
+        <div class="card"><span class="card-tag t-b">Tabular</span><h4>The Database</h4><p>Search and filter every listing from thirteen digitized editions.</p></div>
+        <div class="card"><span class="card-tag t-c">Context</span><h4>Methodology</h4><p>How listings were verified, and where the archive stays silent.</p></div>
+      </div>
+      <div class="spec-table">
+        <p class="table-cap">Database — sample rows</p>
+        <div class="tbl-scroll"><table>
+          <thead><tr><th>Venue</th><th>City</th><th>Type</th><th>Years</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="venue">Amelia's</td><td>San Francisco</td><td>Bar</td><td>1978–1991</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">Old Wives' Tales</td><td>San Francisco</td><td>Bookstore</td><td>1976–1995</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">A Woman's Place</td><td>Portland</td><td>Dropsite</td><td>1973–1988</td><td><span class="pill p-open">Verified</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><div class="sw-chip" style="background:#e8674e;color:#241f24"><span>#e8674e</span></div><div class="sw-meta"><span class="sw-role">Coral primary</span><span class="sw-note">ink on fill · 5.0:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#a82e1a;color:#f0eceb"><span>#a82e1a</span></div><div class="sw-meta"><span class="sw-role">Links</span><span class="sw-note">on ground · 5.8:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#ef9d24;color:#241f24"><span>#ef9d24</span></div><div class="sw-meta"><span class="sw-role">Bulb amber</span><span class="sw-note">ink on fill · 7.3:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#8f3524;color:#f0eceb"><span>#8f3524</span></div><div class="sw-meta"><span class="sw-role">Brick accent</span><span class="sw-note">ground on fill · 6.6:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#f0eceb;color:#241f24;border-bottom:1px solid #d6cecf"><span>#f0eceb</span></div><div class="sw-meta"><span class="sw-role">Warm greige ground</span><span class="sw-note">faint plum bias</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#241f24;color:#f0eceb"><span>#241f24</span></div><div class="sw-meta"><span class="sw-role">Plum-charcoal ink</span><span class="sw-note">13.8:1 · not black</span></div></div>
+    </div>
+    <div class="verdict"><b>What changed, and one call I made</b><p>Body text now sits on a light ground at 13.8:1. The coral also moved: at <code>#e2503a</code> it was stuck in the same dead zone as the scarlet — 3.71 on dark, 3.72 on light, failing both — so it lifted to <code>#e8674e</code>, which passes and lands closer to the mural's actual coral anyway. The plum stays as the <em>neutral</em> only: the bias in the ink and the greige, never an accent. A plum chip would walk straight back into the purple you asked me to drop.</p></div>
+  </section>
+
+  <!-- ══════════════ 7 ══════════════ -->
+  <section class="scheme" data-s="charis">
+    <div class="scheme-head">
+      <span class="scheme-num">07</span>
+      <h3 class="scheme-name">Charis</h3>
+    </div>
+    <p class="scheme-why">From the bookstore sign — and the most on-the-nose source in the set, since Charis has been selling feminist books in Atlanta since 1974 and is exactly the kind of listing this archive holds. The palette is hand-painted signage: weathered blue-green board, gold lettering, rust and deep sky. <b>Teal replaces black as the ink</b>, the way a painted sign has no true black in it. Warm gold against cool green-grey is the only pairing here that feels made by hand rather than printed.</p>
+
+    <div class="specimen">
+      <nav class="spec-nav">
+        <span class="wordmark">Gaia's Guide</span>
+        <a href="#0" class="on">Map</a><a href="#0">Database</a><a href="#0">Vignettes</a><a href="#0">Methodology</a><a href="#0">News</a>
+      </nav>
+      <div class="spec-hero">
+        <p class="hero-label">Thirteen editions · 1975–1995</p>
+        <h4 class="hero-h">Mapping Women's <em>Spaces</em></h4>
+        <p class="hero-p">Bars, bookstores, community centers and dropsites, plotted against the years they operated. <a href="#0">Read the methodology</a> for how listings were sourced and verified.</p>
+        <div class="btn-row">
+          <a href="#0" class="btn btn-fill">Open the map</a>
+          <a href="#0" class="btn btn-ghost">Browse listings</a>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="card"><span class="card-tag t-a">Spatial</span><h4>The Map</h4><p>Browse listings by city and see where the network stretched.</p></div>
+        <div class="card"><span class="card-tag t-b">Tabular</span><h4>The Database</h4><p>Search and filter every listing from thirteen digitized editions.</p></div>
+        <div class="card"><span class="card-tag t-c">Context</span><h4>Methodology</h4><p>How listings were verified, and where the archive stays silent.</p></div>
+      </div>
+      <div class="spec-table">
+        <p class="table-cap">Database — sample rows</p>
+        <div class="tbl-scroll"><table>
+          <thead><tr><th>Venue</th><th>City</th><th>Type</th><th>Years</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="venue">Charis Books &amp; More</td><td>Atlanta</td><td>Bookstore</td><td>1974–present</td><td><span class="pill p-open">Verified</span></td></tr>
+            <tr><td class="venue">Old Wives' Tales</td><td>San Francisco</td><td>Bookstore</td><td>1976–1995</td><td><span class="pill p-closed">Closed</span></td></tr>
+            <tr><td class="venue">A Woman's Place</td><td>Portland</td><td>Dropsite</td><td>1973–1988</td><td><span class="pill p-open">Verified</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><div class="sw-chip" style="background:#e8b92d;color:#14403f"><span>#e8b92d</span></div><div class="sw-meta"><span class="sw-role">Sign gold · primary</span><span class="sw-note">ink on fill · 6.2:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#7d5a0e;color:#e6ebe7"><span>#7d5a0e</span></div><div class="sw-meta"><span class="sw-role">Links</span><span class="sw-note">on ground · 5.2:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#8c3a2a;color:#e6ebe7"><span>#8c3a2a</span></div><div class="sw-meta"><span class="sw-role">Rust accent</span><span class="sw-note">ground on fill · 6.3:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#2e6d7a;color:#e6ebe7"><span>#2e6d7a</span></div><div class="sw-meta"><span class="sw-role">Sky blue accent</span><span class="sw-note">ground on fill · 4.9:1</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#e6ebe7;color:#14403f;border-bottom:1px solid #c6d2cd"><span>#e6ebe7</span></div><div class="sw-meta"><span class="sw-role">Weathered ground</span><span class="sw-note">pale green-grey</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#14403f;color:#e6ebe7"><span>#14403f</span></div><div class="sw-meta"><span class="sw-role">Teal ink</span><span class="sw-note">9.5:1 · not black</span></div></div>
+    </div>
+    <div class="verdict"><b>Trade-off</b><p>At 9.5:1 the teal ink is comfortably legible but it's the softest body text in the set — the borders and shadows lose the graphic bite that black gives them. That's the point of the scheme, and also its cost. If you want the hand-painted warmth without giving up the punch, keeping black as the ink and using teal only for accents is a small change from here.</p></div>
+  </section>
+
+  <section class="closing">
+    <h2 class="sec">Swapping one in</h2>
+    <p>The token architecture already supports this cleanly. Every page declares the same eighteen primitives in a single <code>:root</code> block, and the semantic layer (<code>--color-primary</code>, <code>--color-link</code>, <code>--color-accent-*</code>) points at them — so nothing below the primitives needs to change.</p>
+    <ol>
+      <li>Replace the eighteen hex values in the <code>:root</code> block — but note it appears <b>twice</b> in each of the eight <code>.dc.html</code> files and once in <code>style-guide.html</code>, so a swap is seventeen edits, not nine. Editing only the first copy leaves a second declaration further down that may win on cascade order. Replacing every occurrence of each hex string is the safer operation.</li>
+      <li>Rename the primitive families. <code>--pink-500</code> holding a chartreuse is how a token system starts lying to you. Either rename per scheme, or genericize to <code>--primary-500 / --accent-a-500 / --accent-b-500</code> once and never rename again.</li>
+      <li>Update <code>index.html</code> — it hardcodes <code>#fdfaf4</code> and <code>#c8106f</code> in its redirect styles rather than using tokens.</li>
+      <li>Good news on the rest: the palette hexes appear <em>only</em> inside those token blocks. Nothing is hardcoded loose in the markup, including in the two 8&nbsp;MB Home files — their weight is embedded assets, not stray color.</li>
+    </ol>
+    <p>Following the pattern already set by <code>flag-design/</code>, each scheme can live as its own directory variant for side-by-side review before anything is chosen.</p>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+</style>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+</style>
+<style>:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+</style>
+<style>:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+</style>
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+
+:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+
+</style>
+<script src="./ds-bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{margin:0}
+a{color:var(--color-link);text-decoration:none}
+a:hover{color:var(--color-link-hover)}
+.gg-navlink{font-family:var(--font-display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.03em}
+.gg-navlink:hover{opacity:.7}
+.gg-home-drop:hover .gg-home-menu{display:block !important}
+
+.gg-navlink{color:#fff}
+.gg-navlink:visited{color:#fff}
+.gg-card{border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);display:flex;flex-direction:column;color:var(--ink-900)}
+.gg-card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink-900);color:var(--ink-900)}
+</style>
+</helmet>
+
+<div style="background:var(--paper-0);color:var(--ink-900);min-height:100vh">
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-bottom:var(--border-width-block) solid var(--ink-900);background:var(--ink-900);color:#fff">
+    <a href="Home v1.dc.html" style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:.02em;color:#fff;text-decoration:none">GAIA'S GUIDE</a>
+    <div style="display:flex;gap:28px;align-items:center">
+      <div class="gg-home-drop" style="position:relative">
+        <span class="gg-navlink" style="cursor:pointer">Home ▾</span>
+        <div class="gg-home-menu" style="display:none;position:absolute;top:100%;left:0;padding-top:8px;z-index:50">
+          <div style="background:var(--ink-900);border:2px solid #fff;min-width:150px">
+            <a href="Home v1.dc.html" class="gg-navlink" style="display:block;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.25)">Home v1</a>
+            <a href="Home v2.dc.html" class="gg-navlink" style="display:block;padding:10px 14px">Home v2</a>
+          </div>
+        </div>
+      </div>
+      <a href="Map.dc.html" class="gg-navlink">Map</a>
+      <a href="Database.dc.html" class="gg-navlink">Database</a>
+      <a href="Vignettes.dc.html" class="gg-navlink" style="border-bottom:3px solid #fff">Vignettes</a>
+      <a href="News.dc.html" class="gg-navlink">News</a>
+      <a href="Methodology.dc.html" class="gg-navlink">Methodology &amp; Ethics</a>
+    </div>
+  </nav>
+
+  <div style="max-width:1360px;margin:0 auto;padding:56px 32px 88px">
+    <h1 style="font-family:var(--font-display);font-weight:800;font-size:32px;margin:0 0 12px">Vignettes</h1>
+    <p style="font-family:var(--font-body);font-size:17px;line-height:var(--leading-body);max-width:64ch;opacity:.8;margin:0 0 40px">Short scholarly essays tracing individual listings, editions, and networks from Gaia's Guide against the wider history of second-wave feminism.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+      <a href="Vignette Article.dc.html" class="gg-card">
+        <div style="width:100%;aspect-ratio:16/10;border-bottom:var(--border-width-block) solid var(--ink-900)">
+          <image-slot id="vig-card-1" shape="rect" placeholder="Drop an archival photo"></image-slot>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6">Vignette · 1984</span>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0;color:var(--ink-900)">The Dropsite Network</h2>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:var(--leading-body);opacity:.8;margin:0;flex:1">How mail-forwarding addresses let women find each other before the listings existed.</p>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--pink-600)">Read the vignette →</span>
+        </div>
+      </a>
+
+      <a href="Vignette Article.dc.html" class="gg-card">
+        <div style="width:100%;aspect-ratio:16/10;border-bottom:var(--border-width-block) solid var(--ink-900)">
+          <image-slot id="vig-card-2" shape="rect" placeholder="Drop an archival photo"></image-slot>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6">Vignette · 1978</span>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0;color:var(--ink-900)">Saarein Opens in Amsterdam</h2>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:var(--leading-body);opacity:.8;margin:0;flex:1">A cooperative bar becomes a template copied across a dozen cities.</p>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--pink-600)">Read the vignette →</span>
+        </div>
+      </a>
+
+      <a href="Vignette Article.dc.html" class="gg-card">
+        <div style="width:100%;aspect-ratio:16/10;border-bottom:var(--border-width-block) solid var(--ink-900)">
+          <image-slot id="vig-card-3" shape="rect" placeholder="Drop an archival photo"></image-slot>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6">Vignette · 1991</span>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0;color:var(--ink-900)">The Guide Goes Quiet</h2>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:var(--leading-body);opacity:.8;margin:0;flex:1">Why the 15th edition was the last, and what replaced it.</p>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--pink-600)">Read the vignette →</span>
+        </div>
+      </a>
+
+      <a href="Vignette Article.dc.html" class="gg-card">
+        <div style="width:100%;aspect-ratio:16/10;border-bottom:var(--border-width-block) solid var(--ink-900)">
+          <image-slot id="vig-card-4" shape="rect" placeholder="Drop an archival photo"></image-slot>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6">Vignette · 1980</span>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0;color:var(--ink-900)">Softball as Social Infrastructure</h2>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:var(--leading-body);opacity:.8;margin:0;flex:1">Amateur leagues listed alongside bars and bookstores as community anchors.</p>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--pink-600)">Read the vignette →</span>
+        </div>
+      </a>
+
+      <a href="Vignette Article.dc.html" class="gg-card">
+        <div style="width:100%;aspect-ratio:16/10;border-bottom:var(--border-width-block) solid var(--ink-900)">
+          <image-slot id="vig-card-5" shape="rect" placeholder="Drop an archival photo"></image-slot>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6">Vignette · 1986</span>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0;color:var(--ink-900)">Switchboards Before the Internet</h2>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:var(--leading-body);opacity:.8;margin:0;flex:1">Volunteer phone lines did the work later search engines would take over.</p>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--pink-600)">Read the vignette →</span>
+        </div>
+      </a>
+
+      <a href="Vignette Article.dc.html" class="gg-card">
+        <div style="width:100%;aspect-ratio:16/10;border-bottom:var(--border-width-block) solid var(--ink-900)">
+          <image-slot id="vig-card-6" shape="rect" placeholder="Drop an archival photo"></image-slot>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6">Vignette · 1989</span>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0;color:var(--ink-900)">Land Collectives and the Rural Turn</h2>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:var(--leading-body);opacity:.8;margin:0;flex:1">Why some editions listed retreats and campgrounds far from any city.</p>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--pink-600)">Read the vignette →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

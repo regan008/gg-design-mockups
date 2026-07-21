@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+</style>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+</style>
+<style>:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+</style>
+<style>:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+</style>
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+
+:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+
+</style>
+<script src="./ds-bundle.js"></script>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{margin:0}
+a{color:var(--color-link);text-decoration:none}
+a:hover{color:var(--color-link-hover)}
+.gg-navlink{font-family:var(--font-display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.03em;color:#fff}
+.gg-navlink:visited{color:#fff}
+.gg-navlink:hover{opacity:.7}
+.gg-home-drop:hover .gg-home-menu{display:block !important}
+
+.gg-body p, .gg-body li{font-family:'Source Serif 4',serif;font-size:17px;line-height:1.75;margin:0 0 20px;color:var(--ink-900)}
+.gg-body h2{font-family:var(--font-display);font-weight:800;font-size:20px;text-transform:uppercase;letter-spacing:.03em;border-bottom:var(--border-width-block) solid var(--ink-900);padding-bottom:10px;margin:44px 0 20px}
+.gg-body h2:first-child{margin-top:0}
+</style>
+</helmet>
+
+<div style="background:var(--paper-0);color:var(--ink-900);min-height:100vh">
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-bottom:var(--border-width-block) solid var(--ink-900);background:var(--ink-900);color:#fff">
+    <a href="Home v1.dc.html" style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:.02em;color:#fff;text-decoration:none">GAIA'S GUIDE</a>
+    <div style="display:flex;gap:28px;align-items:center">
+      <div class="gg-home-drop" style="position:relative">
+        <span class="gg-navlink" style="cursor:pointer">Home ▾</span>
+        <div class="gg-home-menu" style="display:none;position:absolute;top:100%;left:0;padding-top:8px;z-index:50">
+          <div style="background:var(--ink-900);border:2px solid #fff;min-width:150px">
+            <a href="Home v1.dc.html" class="gg-navlink" style="display:block;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.25)">Home v1</a>
+            <a href="Home v2.dc.html" class="gg-navlink" style="display:block;padding:10px 14px">Home v2</a>
+          </div>
+        </div>
+      </div>
+      <a href="Map.dc.html" class="gg-navlink">Map</a>
+      <a href="Database.dc.html" class="gg-navlink">Database</a>
+      <a href="Vignettes.dc.html" class="gg-navlink">Vignettes</a>
+      <a href="News.dc.html" class="gg-navlink">News</a>
+      <a href="Methodology.dc.html" class="gg-navlink" style="border-bottom:3px solid #fff">Methodology &amp; Ethics</a>
+    </div>
+  </nav>
+
+  <div style="max-width:760px;margin:0 auto;padding:56px 32px 100px">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:8px">Project Statement</div>
+    <h1 style="font-family:var(--font-display);font-weight:800;font-size:32px;margin:0 0 32px">Methodology &amp; Ethics</h1>
+
+    <div class="gg-body">
+      <h2>Sourcing</h2>
+      <p>All listings in this atlas are transcribed directly from thirteen digitized editions of Gaia's Guide, published between the early 1970s and early 1990s. Where an edition's date is uncertain, we note the estimated range rather than assigning a false precision.</p>
+      <p>Each listing retains the type, address, and description as originally printed. We do not supplement listings with outside sources except to note closure dates or name changes drawn from corroborating periodicals, which are cited in the relevant vignette.</p>
+
+      <h2>Geocoding &amp; precision</h2>
+      <p>Where the guide gave a street address, we geocode it precisely. Where the guide gave only a city, a PO box, or a "general delivery" contact — often deliberate, for the safety of the person or place listed — we plot the listing at the city center and mark it as approximate. Approximate markers are visually distinct on the map and can be filtered out entirely.</p>
+      <p>We do not attempt to determine a precise address for listings the guide itself chose to obscure. That discretion was often a safety measure, and we treat it as historical evidence in its own right rather than a gap to correct.</p>
+
+      <h2>Presentation of closed or historical venues</h2>
+      <p>Most venues in this atlas no longer exist. Listings are presented as archival record, not current recommendation, and are never framed as if they remain open today. Each listing is dated to the edition(s) in which it appeared.</p>
+
+      <h2>What we do not include</h2>
+      <ul style="padding-left:20px;margin:0 0 20px">
+        <li>Personal names of proprietors or patrons not already public in the source text.</li>
+        <li>Any address more precise than what the guide itself published.</li>
+        <li>Present-day contact information for any listing, regardless of whether the venue still operates under the same name.</li>
+      </ul>
+
+      <h2>Positionality</h2>
+      <p>This project is built by researchers outside the communities the guide served, working from a print artifact rather than oral testimony. We welcome corrections, context, and firsthand accounts from anyone who used or worked in the spaces this atlas documents; a contact method is provided in the project's about materials.</p>
+
+      <h2>Living document</h2>
+      <p>This methodology will be revised as the project grows. Substantive changes are logged on the News page.</p>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

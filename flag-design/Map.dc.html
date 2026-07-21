@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+</style>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+</style>
+<style>:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+</style>
+<style>:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+</style>
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+
+:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+
+</style>
+<script src="./ds-bundle.js"></script>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html,body{margin:0;height:100%}
+#dc-root, x-dc{height:100%}
+a{color:var(--color-link);text-decoration:none}
+a:hover{color:var(--color-link-hover)}
+.gg-navlink{font-family:var(--font-display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.03em}
+.gg-navlink:hover{opacity:.7}
+.gg-home-drop:hover .gg-home-menu{display:block !important}
+
+.gg-navlink{color:#fff}
+.gg-navlink:visited{color:#fff}
+</style>
+</helmet>
+
+<div style="display:flex;flex-direction:column;height:100vh;background:var(--paper-0);color:var(--ink-900)">
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-bottom:var(--border-width-block) solid var(--ink-900);background:var(--ink-900);color:#fff;flex-shrink:0">
+    <a href="Home v1.dc.html" style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:.02em;color:#fff;text-decoration:none">GAIA'S GUIDE</a>
+    <div style="display:flex;gap:28px;align-items:center">
+      <div class="gg-home-drop" style="position:relative">
+        <span class="gg-navlink" style="cursor:pointer">Home ▾</span>
+        <div class="gg-home-menu" style="display:none;position:absolute;top:100%;left:0;padding-top:8px;z-index:50">
+          <div style="background:var(--ink-900);border:2px solid #fff;min-width:150px">
+            <a href="Home v1.dc.html" class="gg-navlink" style="display:block;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.25)">Home v1</a>
+            <a href="Home v2.dc.html" class="gg-navlink" style="display:block;padding:10px 14px">Home v2</a>
+          </div>
+        </div>
+      </div>
+      <a href="Map.dc.html" class="gg-navlink" style="border-bottom:3px solid #fff">Map</a>
+      <a href="Database.dc.html" class="gg-navlink">Database</a>
+      <a href="Vignettes.dc.html" class="gg-navlink">Vignettes</a>
+      <a href="News.dc.html" class="gg-navlink">News</a>
+      <a href="Methodology.dc.html" class="gg-navlink">Methodology &amp; Ethics</a>
+    </div>
+  </nav>
+
+  <div style="position:relative;flex:1;overflow:hidden;background:var(--paper-50)">
+
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(88%,1500px);aspect-ratio:8/5">
+      <svg sc-camel-view-box="0 0 960 600" style="width:100%;height:100%;overflow:visible">
+        <polygon points="120,60 250,55 350,50 450,60 550,70 650,90 720,100 750,150 770,180 760,220 740,260 720,300 700,340 680,380 660,440 640,560 600,500 540,470 480,460 420,440 360,460 300,430 220,400 160,380 110,320 90,220 100,140" fill="var(--ink-900)" opacity="0.06" stroke="var(--ink-900)" stroke-width="4"></polygon>
+      </svg>
+
+      <sc-if value="{{ zoomedOut }}" hint-placeholder-val="{{ true }}">
+        <sc-for list="{{ clusters }}" as="c" hint-placeholder-count="6">
+          <div style="position:absolute;left:{{ c.xPct }}%;top:{{ c.yPct }}%;transform:translate(-50%,-50%);cursor:pointer" sc-camel-on-click="{{ zoomIn }}">
+            <div style="width:{{ c.size }}px;height:{{ c.size }}px;border-radius:50%;background:var(--pink-500);border:var(--border-width-block) solid var(--ink-900);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-weight:800;box-shadow:var(--shadow-block-sm)">{{ c.count }}</div>
+            <div style="text-align:center;margin-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">{{ c.state }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ zoomedIn }}" hint-placeholder-val="{{ false }}">
+        <sc-for list="{{ visibleMarkers }}" as="m" hint-placeholder-count="10">
+          <div style="position:absolute;left:{{ m.xPct }}%;top:{{ m.yPct }}%;transform:translate(-50%,-50%);cursor:pointer" sc-camel-on-mouse-enter="{{ m.onEnter }}" sc-camel-on-mouse-leave="{{ onLeave }}">
+            <div style="width:14px;height:14px;transform:rotate(45deg);background:{{ m.fill }};border:2.5px {{ m.borderStyle }} var(--ink-900)"></div>
+            <sc-if value="{{ m.hovered }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:-8px;left:50%;transform:translate(-50%,-100%);background:var(--ink-900);color:#fff;font-family:var(--font-mono);font-size:11px;padding:6px 10px;white-space:nowrap;box-shadow:var(--shadow-block-sm);z-index:20">
+                <div style="font-weight:700">{{ m.name }}</div>
+                <div style="opacity:.75">{{ m.city }}, {{ m.state }} · {{ m.type }}</div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </sc-if>
+    </div>
+
+    <div style="position:absolute;top:24px;left:24px;width:270px;background:var(--paper-0);border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);padding:20px;display:flex;flex-direction:column;gap:16px;z-index:10">
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--ink-900);padding-bottom:8px">Filter Listings</div>
+      <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Input" hint-size="100%,60px" label="City or State" placeholder="e.g. Toledo, OH" value="{{ query }}" sc-camel-on-change="{{ onQueryChange }}"></x-import>
+      <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Select" hint-size="100%,60px" label="Type" options="{{ typeOptions }}" value="{{ typeFilter }}" sc-camel-on-change="{{ onTypeChange }}"></x-import>
+      <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Checkbox" hint-size="auto,24px" label="Show approximate locations" checked="{{ showApprox }}" sc-camel-on-change="{{ onApproxChange }}"></x-import>
+      <div style="border-top:2px solid var(--ink-900);padding-top:12px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em">
+          <div style="width:12px;height:12px;transform:rotate(45deg);background:var(--pink-500);border:2.5px solid var(--ink-900);flex-shrink:0"></div>
+          <span>Precise location</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em">
+          <div style="width:12px;height:12px;transform:rotate(45deg);background:transparent;border:2.5px dashed var(--ink-900);flex-shrink:0"></div>
+          <span>Approximate (city / PO box)</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;top:24px;right:24px;z-index:10">
+      <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Button" hint-size="auto,44px" variant="ghost" sc-camel-on-click="{{ toggleZoom }}">{{ zoomLabel }}</x-import>
+    </div>
+
+    <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);width:min(90%,720px);background:var(--paper-0);border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);padding:18px 24px;z-index:10">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase">Year</span>
+        <span style="font-family:var(--font-display);font-weight:800;font-size:20px;background:var(--ink-900);color:#fff;padding:2px 12px">{{ year }}</span>
+      </div>
+      <input type="range" min="1970" max="1999" step="1" value="{{ year }}" sc-camel-on-change="{{ onYearChange }}" style="width:100%;accentColor:var(--pink-500)">
+      <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:10px;opacity:.6;margin-top:4px">
+        <span>1970</span><span>1975</span><span>1980</span><span>1985</span><span>1990</span><span>1995</span><span>1999</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+
+const TYPES = ['Bar','Nightclub','Restaurant','Bookstore','Feminist Press/Publisher','Coffeehouse','Community Center',"Women's Center",'Bathhouse','Guesthouse/B&B','Campground','Beach','Retreat/Land Collective','Dropsite (Mail Contact)','Switchboard/Hotline','Health Clinic','Legal Aid/Counseling','Religious/Spiritual Group','Softball League','Motorcycle Club','Music Venue','Art/Craft Collective','Social/Political Organization','Travel Agency','Vacation Rental','Thrift/Bookshop Co-op','Print Shop','Archive/Library'];
+
+const MARKERS = [
+  {id:1,name:"Sisters' Tavern",city:'Seattle',state:'WA',type:'Bar',x:140,y:90,precise:true,yearStart:1975,yearEnd:1990},
+  {id:2,name:'Amelia Bookstore',city:'San Francisco',state:'CA',type:'Bookstore',x:95,y:260,precise:true,yearStart:1970,yearEnd:1999},
+  {id:3,name:'West Coast Women\'s Center',city:'Los Angeles',state:'CA',type:"Women's Center",x:120,y:340,precise:true,yearStart:1972,yearEnd:1995},
+  {id:4,name:'San Diego Dropsite',city:'San Diego',state:'CA',type:'Dropsite (Mail Contact)',x:140,y:370,precise:false,yearStart:1980,yearEnd:1999},
+  {id:5,name:'Rocky Mountain Retreat',city:'Denver',state:'CO',type:'Retreat/Land Collective',x:330,y:270,precise:true,yearStart:1978,yearEnd:1992},
+  {id:6,name:'Twin Cities Switchboard',city:'Minneapolis',state:'MN',type:'Switchboard/Hotline',x:430,y:150,precise:true,yearStart:1976,yearEnd:1990},
+  {id:7,name:'Chicago Women\'s Coffeehouse',city:'Chicago',state:'IL',type:'Coffeehouse',x:480,y:200,precise:true,yearStart:1970,yearEnd:1999},
+  {id:8,name:'Detroit Dropsite',city:'Detroit',state:'MI',type:'Dropsite (Mail Contact)',x:540,y:170,precise:false,yearStart:1982,yearEnd:1994},
+  {id:9,name:'The Anchor Bar',city:'Toledo',state:'OH',type:'Bar',x:545,y:190,precise:true,yearStart:1974,yearEnd:1988},
+  {id:10,name:'Cleveland Contact',city:'Cleveland',state:'OH',type:'Dropsite (Mail Contact)',x:560,y:185,precise:false,yearStart:1985,yearEnd:1999},
+  {id:11,name:'Labyris Books',city:'New York',state:'NY',type:'Bookstore',x:735,y:235,precise:true,yearStart:1970,yearEnd:1999},
+  {id:12,name:'Boston Women\'s Center',city:'Boston',state:'MA',type:'Community Center',x:760,y:190,precise:true,yearStart:1971,yearEnd:1996},
+  {id:13,name:'Provincetown Guesthouse',city:'Provincetown',state:'MA',type:'Guesthouse/B&B',x:775,y:175,precise:true,yearStart:1975,yearEnd:1999},
+  {id:14,name:'DC Legal Aid Collective',city:'Washington',state:'DC',type:'Legal Aid/Counseling',x:700,y:270,precise:true,yearStart:1973,yearEnd:1990},
+  {id:15,name:'Atlanta Softball League',city:'Atlanta',state:'GA',type:'Softball League',x:580,y:340,precise:false,yearStart:1980,yearEnd:1999},
+  {id:16,name:'Crescent City Bar',city:'New Orleans',state:'LA',type:'Bar',x:490,y:430,precise:true,yearStart:1976,yearEnd:1993},
+  {id:17,name:'Austin Print Shop',city:'Austin',state:'TX',type:'Print Shop',x:350,y:410,precise:false,yearStart:1983,yearEnd:1999},
+  {id:18,name:'Houston Health Clinic',city:'Houston',state:'TX',type:'Health Clinic',x:390,y:430,precise:true,yearStart:1979,yearEnd:1994},
+  {id:19,name:'Miami Beach House',city:'Miami',state:'FL',type:'Beach',x:640,y:540,precise:true,yearStart:1977,yearEnd:1999},
+  {id:20,name:'Key West Archive',city:'Key West',state:'FL',type:'Archive/Library',x:630,y:560,precise:false,yearStart:1972,yearEnd:1999}
+];
+
+class Component extends DCLogic {
+  state = { query: '', typeFilter: 'All Types', showApprox: true, year: 1985, zoomedOut: true, hoveredId: null };
+
+  filtered() {
+    const q = this.state.query.trim().toLowerCase();
+    return MARKERS.filter(m => {
+      if (!this.state.showApprox && !m.precise) return false;
+      if (this.state.typeFilter !== 'All Types' && m.type !== this.state.typeFilter) return false;
+      if (this.state.year < m.yearStart || this.state.year > m.yearEnd) return false;
+      if (q && !(m.city.toLowerCase().includes(q) || m.state.toLowerCase().includes(q))) return false;
+      return true;
+    });
+  }
+
+  renderVals() {
+    const visible = this.filtered();
+    const byState = {};
+    visible.forEach(m => {
+      if (!byState[m.state]) byState[m.state] = { xs: [], ys: [], count: 0 };
+      byState[m.state].xs.push(m.x); byState[m.state].ys.push(m.y); byState[m.state].count++;
+    });
+    const clusters = Object.keys(byState).map(state => {
+      const g = byState[state];
+      const avgX = g.xs.reduce((a,b)=>a+b,0) / g.xs.length;
+      const avgY = g.ys.reduce((a,b)=>a+b,0) / g.ys.length;
+      return { state, count: g.count, xPct: avgX/960*100, yPct: avgY/600*100, size: Math.min(56, 28 + g.count*6) };
+    });
+    const visibleMarkers = visible.map(m => ({
+      ...m, xPct: m.x/960*100, yPct: m.y/600*100,
+      fill: m.precise ? 'var(--pink-500)' : 'transparent',
+      borderStyle: m.precise ? 'solid' : 'dashed',
+      hovered: this.state.hoveredId === m.id,
+      onEnter: () => this.setState({ hoveredId: m.id })
+    }));
+    return {
+      query: this.state.query,
+      typeFilter: this.state.typeFilter,
+      showApprox: this.state.showApprox,
+      year: this.state.year,
+      zoomedOut: this.state.zoomedOut,
+      zoomedIn: !this.state.zoomedOut,
+      zoomLabel: this.state.zoomedOut ? 'Zoom to Listings' : 'Zoom to US',
+      typeOptions: ['All Types', ...TYPES],
+      clusters, visibleMarkers,
+      onQueryChange: e => this.setState({ query: e.target.value }),
+      onTypeChange: e => this.setState({ typeFilter: e.target.value }),
+      onApproxChange: v => this.setState({ showApprox: v }),
+      onYearChange: e => this.setState({ year: Number(e.target.value) }),
+      toggleZoom: () => this.setState(s => ({ zoomedOut: !s.zoomedOut })),
+      zoomIn: () => this.setState({ zoomedOut: false }),
+      onLeave: () => this.setState({ hoveredId: null })
+    };
+  }
+}
+
+</script>
+</body>
+</html>

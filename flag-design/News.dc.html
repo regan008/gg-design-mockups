@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+</style>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+</style>
+<style>:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+</style>
+<style>:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+</style>
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+
+:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+
+</style>
+<script src="./ds-bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{margin:0}
+a{color:var(--color-link);text-decoration:none}
+a:hover{color:var(--color-link-hover)}
+.gg-navlink{font-family:var(--font-display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.03em;color:#fff}
+.gg-navlink:visited{color:#fff}
+.gg-navlink:hover{opacity:.7}
+.gg-home-drop:hover .gg-home-menu{display:block !important}
+
+.gg-card{border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);display:flex;flex-direction:column}
+.gg-card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink-900)}
+</style>
+</helmet>
+
+<div style="background:var(--paper-0);color:var(--ink-900);min-height:100vh">
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-bottom:var(--border-width-block) solid var(--ink-900);background:var(--ink-900);color:#fff">
+    <a href="Home v1.dc.html" style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:.02em;color:#fff;text-decoration:none">GAIA'S GUIDE</a>
+    <div style="display:flex;gap:28px;align-items:center">
+      <div class="gg-home-drop" style="position:relative">
+        <span class="gg-navlink" style="cursor:pointer">Home ▾</span>
+        <div class="gg-home-menu" style="display:none;position:absolute;top:100%;left:0;padding-top:8px;z-index:50">
+          <div style="background:var(--ink-900);border:2px solid #fff;min-width:150px">
+            <a href="Home v1.dc.html" class="gg-navlink" style="display:block;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.25)">Home v1</a>
+            <a href="Home v2.dc.html" class="gg-navlink" style="display:block;padding:10px 14px">Home v2</a>
+          </div>
+        </div>
+      </div>
+      <a href="Map.dc.html" class="gg-navlink">Map</a>
+      <a href="Database.dc.html" class="gg-navlink">Database</a>
+      <a href="Vignettes.dc.html" class="gg-navlink">Vignettes</a>
+      <a href="News.dc.html" class="gg-navlink" style="border-bottom:3px solid #fff">News</a>
+      <a href="Methodology.dc.html" class="gg-navlink">Methodology &amp; Ethics</a>
+    </div>
+  </nav>
+
+  <div style="max-width:1360px;margin:0 auto;padding:56px 32px 88px">
+    <h1 style="font-family:var(--font-display);font-weight:800;font-size:32px;margin:0 0 12px">News</h1>
+    <p style="font-family:var(--font-body);font-size:17px;line-height:var(--leading-body);max-width:64ch;opacity:.8;margin:0 0 40px">Updates on new editions digitized, features shipped, and research findings from the project team.</p>
+
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div style="display:grid;grid-template-columns:180px 1fr;gap:32px;padding:28px 0;border-top:2px solid var(--ink-900)">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.6">Jun 12, 2026</div>
+        <div>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:20px;margin:0 0 8px">Two new editions added to the archive</h2>
+          <p style="font-family:var(--font-body);font-size:15px;line-height:var(--leading-body);opacity:.8;margin:0">The 10th (1981) and 14th (1989) editions have been fully transcribed and their listings added to the map and database.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:180px 1fr;gap:32px;padding:28px 0;border-top:2px solid var(--ink-900)">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.6">Apr 30, 2026</div>
+        <div>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:20px;margin:0 0 8px">Timeline filter launched on the map</h2>
+          <p style="font-family:var(--font-body);font-size:15px;line-height:var(--leading-body);opacity:.8;margin:0">You can now scrub between 1970 and 1999 to see which listings were active in a given year.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:180px 1fr;gap:32px;padding:28px 0;border-top:2px solid var(--ink-900)">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.6">Feb 3, 2026</div>
+        <div>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:20px;margin:0 0 8px">New vignette: "The Dropsite Network"</h2>
+          <p style="font-family:var(--font-body);font-size:15px;line-height:var(--leading-body);opacity:.8;margin:0">A look at how mail-forwarding addresses connected women before fixed venues existed.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:180px 1fr;gap:32px;padding:28px 0;border-top:2px solid var(--ink-900);border-bottom:2px solid var(--ink-900)">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.6">Nov 18, 2025</div>
+        <div>
+          <h2 style="font-family:var(--font-display);font-weight:800;font-size:20px;margin:0 0 8px">Project launch</h2>
+          <p style="font-family:var(--font-body);font-size:15px;line-height:var(--leading-body);opacity:.8;margin:0">The Gaia's Guide Atlas goes live with thirteen digitized editions and the first six vignettes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+</style>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+</style>
+<style>:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+</style>
+<style>:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+</style>
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#d162a4;
+--pink-600:#a30262;
+--pink-100:#f4d6e6;
+--coral-500:#ef7627;
+--coral-600:#d52d00;
+--coral-100:#fbdcc6;
+--chartreuse-500:#ff9a56;
+--chartreuse-600:#e07a35;
+--chartreuse-100:#ffe4d0;
+--lavender-500:#b55690;
+--lavender-600:#8f3d70;
+--lavender-100:#ecd6e4;
+--ink-900:#2a0d1e;
+--ink-700:#4a2137;
+--paper-0:#fffaf6;
+--paper-50:#fdeee4;
+--paper-100:#f7ddce;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--pink-600);
+--color-link-hover:var(--coral-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+
+:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+
+</style>
+<script src="./ds-bundle.js"></script>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{margin:0}
+a{color:var(--color-link);text-decoration:none}
+a:hover{color:var(--color-link-hover)}
+.gg-navlink{font-family:var(--font-display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.03em}
+.gg-navlink:hover{opacity:.7}
+.gg-home-drop:hover .gg-home-menu{display:block !important}
+
+</style>
+</helmet>
+
+<div style="background:var(--paper-0);color:var(--ink-900)">
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-bottom:var(--border-width-block) solid var(--ink-900);background:var(--ink-900);color:#fff">
+    <a href="Home v1.dc.html" style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:.02em;color:#fff;text-decoration:none">GAIA'S GUIDE</a>
+    <div style="display:flex;gap:28px;align-items:center">
+      <div class="gg-home-drop" style="position:relative">
+        <span class="gg-navlink" style="cursor:pointer;border-bottom:3px solid #fff">Home ▾</span>
+        <div class="gg-home-menu" style="display:none;position:absolute;top:100%;left:0;padding-top:8px;z-index:50">
+          <div style="background:var(--ink-900);border:2px solid #fff;min-width:150px">
+            <a href="Home v1.dc.html" class="gg-navlink" style="display:block;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.25)">Home v1</a>
+            <a href="Home v2.dc.html" class="gg-navlink" style="display:block;padding:10px 14px">Home v2</a>
+          </div>
+        </div>
+      </div>
+      <a href="Map.dc.html" class="gg-navlink">Map</a>
+      <a href="Database.dc.html" class="gg-navlink">Database</a>
+      <a href="Vignettes.dc.html" class="gg-navlink">Vignettes</a>
+      <a href="News.dc.html" class="gg-navlink">News</a>
+      <a href="Methodology.dc.html" class="gg-navlink">Methodology &amp; Ethics</a>
+    </div>
+  </nav>
+
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;padding:64px 32px 96px;align-items:start;max-width:1360px;margin:0 auto">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink-900);color:#fff;display:inline-block;padding:6px 12px;margin-bottom:20px">USA · CANADA · ALL EUROPE &amp; THE UK</div>
+      <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,4vw,3.6rem);line-height:1.05;margin:0 0 20px">Mapping Women's Spaces, 1975–1995</h1>
+      <p style="font-family:var(--font-body);font-size:17px;line-height:var(--leading-body);max-width:52ch;margin:0 0 28px;opacity:.85">Gaia's Guide sent queer women overseas with a paperback and a list of addresses. This atlas puts thirteen editions of bars, bookstores, and dropsites back on the map, alongside the feminist history that shaped them.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Button" hint-size="auto,48px" size="lg" variant="primary">Explore the Map</x-import>
+        <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Button" hint-size="auto,48px" size="lg" variant="ghost">Read the Vignettes</x-import>
+      </div>
+    </div>
+    <div style="position:relative;padding:0 0 0 40px;height:260px">
+      <img src="./assets/v2-cover-1.png" style="width:200px;border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);position:absolute;top:0;left:40px;z-index:2">
+      <img src="./assets/v2-cover-0.png" style="width:200px;border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);position:absolute;top:36px;left:0;z-index:1">
+    </div>
+  </div>
+
+  <div style="display:flex;border-top:var(--border-width-block) solid var(--ink-900);border-bottom:var(--border-width-block) solid var(--ink-900)">
+    <div style="flex:1;padding:24px 32px;border-right:2px solid var(--ink-900);text-align:center">
+      <div style="font-family:var(--font-display);font-weight:800;font-size:32px">13</div>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7">Editions digitized</div>
+    </div>
+    <div style="flex:1;padding:24px 32px;border-right:2px solid var(--ink-900);text-align:center">
+      <div style="font-family:var(--font-display);font-weight:800;font-size:32px">1973–1990s</div>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7">Years spanned</div>
+    </div>
+    <div style="flex:1;padding:24px 32px;text-align:center">
+      <div style="font-family:var(--font-display);font-weight:800;font-size:32px">600+</div>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7">Listings mapped</div>
+    </div>
+  </div>
+
+  <div style="padding:56px 32px;max-width:1360px;margin:0 auto">
+    <h2 style="font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:.02em;text-transform:uppercase;border-bottom:var(--border-width-block) solid var(--ink-900);padding-bottom:10px;margin:0 0 24px">Ways to Explore</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div style="border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6">01</div>
+        <h3 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0">The Map</h3>
+        <p style="font-family:var(--font-body);font-size:15px;line-height:var(--leading-body);margin:0;opacity:.8;flex:1">Browse listings by city and see where the guide's network stretched.</p>
+        <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Button" hint-size="auto,40px" variant="primary">Open the Map</x-import>
+      </div>
+      <div style="border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6">02</div>
+        <h3 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0">The Database</h3>
+        <p style="font-family:var(--font-body);font-size:15px;line-height:var(--leading-body);margin:0;opacity:.8;flex:1">Search and filter every listing pulled from thirteen digitized editions.</p>
+        <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Button" hint-size="auto,40px" variant="coral">Search the Database</x-import>
+      </div>
+      <div style="border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6">03</div>
+        <h3 style="font-family:var(--font-display);font-weight:800;font-size:19px;margin:0">Methodology &amp; Ethics</h3>
+        <p style="font-family:var(--font-body);font-size:15px;line-height:var(--leading-body);margin:0;opacity:.8;flex:1">Read how listings were sourced, verified, and where the archive stays silent.</p>
+        <div style="--color-primary:var(--lavender-500)"><x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Button" hint-size="auto,40px" variant="primary">Read the Approach</x-import></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 32px 56px;max-width:1360px;margin:0 auto">
+    <h2 style="font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:.02em;text-transform:uppercase;border-bottom:var(--border-width-block) solid var(--ink-900);padding-bottom:10px;margin:0 0 24px">Featured Vignettes</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div style="border-top:4px solid var(--pink-500)"><x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Card" hint-size="100%,260px" eyebrow="Vignette · 1984" title="The Dropsite Network">How mail-forwarding addresses let women find each other before the listings existed.</x-import></div>
+      <div style="border-top:4px solid var(--lavender-500)"><x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Card" hint-size="100%,260px" eyebrow="Vignette · 1978" title="Saarein Opens in Amsterdam">A cooperative bar becomes a template copied across a dozen cities.</x-import></div>
+      <div style="border-top:4px solid var(--coral-500)"><x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Card" hint-size="100%,260px" eyebrow="Vignette · 1991" title="The Guide Goes Quiet" tone="ink">Why the 15th edition was the last, and what replaced it.</x-import></div>
+    </div>
+  </div>
+
+  <div style="background:var(--ink-900);color:#fff;padding:56px 32px">
+    <div style="max-width:1360px;margin:0 auto">
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:.02em;text-transform:uppercase;border-bottom:var(--border-width-block) solid #fff;padding-bottom:10px;margin:0 0 28px">The Map</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-bottom:24px">
+        <div style="width:100%;height:320px;border:var(--border-width-block) solid #fff">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-map-preview" shape="rect" placeholder="Drop a map preview screenshot" hint-size="100%,100%"></x-import>
+        </div>
+        <p style="font-family:var(--font-body);font-size:16px;line-height:var(--leading-body);opacity:.85;margin:0">The atlas plots every listing from thirteen editions of Gaia's Guide — bars, bookstores, community centers, and dropsites — against the years they operated.</p>
+      </div>
+      <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Button" hint-size="auto,44px" variant="inverse">Open Full Map</x-import>
+    </div>
+  </div>
+
+  <div style="padding:56px 32px 72px;max-width:1360px;margin:0 auto">
+    <h2 style="font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:.02em;text-transform:uppercase;border-bottom:var(--border-width-block) solid var(--ink-900);padding-bottom:10px;margin:0 0 24px">About Gaia's Guide</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+      <div>
+        <p style="font-family:var(--font-body);font-size:17px;line-height:var(--leading-body);margin:0 0 24px;opacity:.85">Published from 1973 into the early 1990s, Gaia's Guide was a paperback travel directory for lesbians, circulated hand to hand at the same moment second-wave feminism was reshaping women's public and private lives.</p>
+        <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Button" hint-size="auto,48px" size="lg" variant="primary">Read the Full Story</x-import>
+      </div>
+      <div style="width:100%;height:320px;border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block)">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-about-photo" shape="rect" placeholder="Drop an archival photo" hint-size="100%,100%"></x-import>
+      </div>
+    </div>
+  </div>
+
+  <footer style="border-top:var(--border-width-block) solid var(--ink-900);padding:28px 32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase">
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="display:flex;gap:4px">
+        <span style="width:10px;height:10px;background:var(--pink-500)"></span>
+        <span style="width:10px;height:10px;background:var(--coral-500)"></span>
+        <span style="width:10px;height:10px;background:var(--chartreuse-500)"></span>
+        <span style="width:10px;height:10px;background:var(--lavender-500)"></span>
+      </span>
+      <span>© Gaia's Guide Atlas — a digital history project</span>
+    </div>
+    <div style="display:flex;gap:18px"><span>Map</span><span>Database</span><span>Vignettes</span><span>News</span><span>Methodology &amp; Ethics</span></div>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>

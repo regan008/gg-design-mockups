@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#e85c42;
+--pink-600:#ac371f;
+--pink-100:#fadcd4;
+--coral-500:#0e7a76;
+--coral-600:#0c6b67;
+--coral-100:#d5e6e5;
+--chartreuse-500:#cfdc00;
+--chartreuse-600:#5f6a00;
+--chartreuse-100:#eef2c2;
+--lavender-500:#b07e1e;
+--lavender-600:#7a5610;
+--lavender-100:#f0e4c4;
+--ink-900:#111111;
+--ink-700:#2b2b2b;
+--paper-0:#f2f2ee;
+--paper-50:#e8e8e2;
+--paper-100:#dcdcd4;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--coral-600);
+--color-link-hover:var(--pink-600);
+}
+</style>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+</style>
+<style>:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+</style>
+<style>:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+</style>
+<style>:root{
+/* --- base palette, lifted from four Gaia's Guide covers (1983 lavender / 1987 coral / 1988 chartreuse / 1990 magenta) --- */
+--pink-500:#e85c42;
+--pink-600:#ac371f;
+--pink-100:#fadcd4;
+--coral-500:#0e7a76;
+--coral-600:#0c6b67;
+--coral-100:#d5e6e5;
+--chartreuse-500:#cfdc00;
+--chartreuse-600:#5f6a00;
+--chartreuse-100:#eef2c2;
+--lavender-500:#b07e1e;
+--lavender-600:#7a5610;
+--lavender-100:#f0e4c4;
+--ink-900:#111111;
+--ink-700:#2b2b2b;
+--paper-0:#f2f2ee;
+--paper-50:#e8e8e2;
+--paper-100:#dcdcd4;
+/* --- semantic aliases --- */
+--color-bg:var(--paper-0);
+--color-bg-muted:var(--paper-50);
+--color-surface:var(--paper-0);
+--color-surface-block:var(--ink-900);
+--color-text:var(--ink-900);
+--color-text-inverse:var(--paper-0);
+--color-text-muted:var(--ink-700);
+--color-border:var(--ink-900);
+--color-primary:var(--pink-500);
+--color-primary-strong:var(--pink-600);
+--color-primary-tint:var(--pink-100);
+--color-accent-coral:var(--coral-500);
+--color-accent-chartreuse:var(--chartreuse-500);
+--color-accent-lavender:var(--lavender-500);
+--color-focus:var(--coral-500);
+--color-link:var(--coral-600);
+--color-link-hover:var(--pink-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+--font-display:'Poppins',Futura,'Century Gothic',sans-serif;
+--font-body:'Source Serif 4',Georgia,serif;
+--font-mono:'Space Mono','Courier New',monospace;
+--text-display-1:clamp(2.8rem,5vw,5.5rem);
+--text-display-2:clamp(2rem,3.5vw,3.4rem);
+--text-h1:2.4rem;
+--text-h2:1.8rem;
+--text-h3:1.4rem;
+--text-body-lg:1.15rem;
+--text-body:1rem;
+--text-small:0.85rem;
+--text-caption:0.75rem;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.55;
+--tracking-wordmark:0.35em;
+--tracking-label:0.12em;
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+}
+
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--block-band:12px;
+--container-max:1200px;
+}
+
+:root{
+--radius-none:0px;
+--radius-sm:2px;
+--border-width-hairline:1px;
+--border-width-block:4px;
+--border-width-heavy:8px;
+--shadow-none:none;
+--shadow-block:6px 6px 0 var(--ink-900);
+--shadow-block-sm:4px 4px 0 var(--ink-900);
+--ease-standard:cubic-bezier(.2,.8,.3,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-standard:200ms; /* @kind other */
+}
+
+</style>
+<script src="./ds-bundle.js"></script>
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{margin:0}
+a{color:var(--color-link);text-decoration:none}
+a:hover{color:var(--color-link-hover)}
+.gg-navlink{font-family:var(--font-display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.03em}
+.gg-navlink:hover{opacity:.7}
+.gg-home-drop:hover .gg-home-menu{display:block !important}
+
+.gg-navlink{color:#fff}
+.gg-navlink:visited{color:#fff}
+.gg-th{cursor:pointer;user-select:none}
+.gg-th:hover{opacity:.65}
+.gg-row:hover{background:var(--paper-50)}
+</style>
+</helmet>
+
+<div style="background:var(--paper-0);color:var(--ink-900);min-height:100vh">
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-bottom:var(--border-width-block) solid var(--ink-900);background:var(--ink-900);color:#fff">
+    <a href="Home v1.dc.html" style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:.02em;color:#fff;text-decoration:none">GAIA'S GUIDE</a>
+    <div style="display:flex;gap:28px;align-items:center">
+      <div class="gg-home-drop" style="position:relative">
+        <span class="gg-navlink" style="cursor:pointer">Home ▾</span>
+        <div class="gg-home-menu" style="display:none;position:absolute;top:100%;left:0;padding-top:8px;z-index:50">
+          <div style="background:var(--ink-900);border:2px solid #fff;min-width:150px">
+            <a href="Home v1.dc.html" class="gg-navlink" style="display:block;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.25)">Home v1</a>
+            <a href="Home v2.dc.html" class="gg-navlink" style="display:block;padding:10px 14px">Home v2</a>
+          </div>
+        </div>
+      </div>
+      <a href="Map.dc.html" class="gg-navlink">Map</a>
+      <a href="Database.dc.html" class="gg-navlink" style="border-bottom:3px solid #fff">Database</a>
+      <a href="Vignettes.dc.html" class="gg-navlink">Vignettes</a>
+      <a href="News.dc.html" class="gg-navlink">News</a>
+      <a href="Methodology.dc.html" class="gg-navlink">Methodology &amp; Ethics</a>
+    </div>
+  </nav>
+
+  <div style="max-width:1360px;margin:0 auto;padding:40px 32px 80px">
+    <h1 style="font-family:var(--font-display);font-weight:800;font-size:28px;margin:0 0 8px">Listings Database</h1>
+    <p style="font-family:var(--font-body);font-size:15px;opacity:.75;margin:0 0 28px">{{ resultCount }} listings drawn from thirteen digitized editions of Gaia's Guide.</p>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block);padding:20px;margin-bottom:28px">
+      <div style="flex:1;min-width:220px">
+        <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Input" hint-size="100%,60px" label="Search" placeholder="Title or city" value="{{ query }}" sc-camel-on-change="{{ onQueryChange }}"></x-import>
+      </div>
+      <div style="width:220px">
+        <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Select" hint-size="100%,60px" label="Type" options="{{ typeOptions }}" value="{{ typeFilter }}" sc-camel-on-change="{{ onTypeChange }}"></x-import>
+      </div>
+      <div style="width:180px">
+        <x-import component-from-global-scope="GaiaSGuideDesignSystem_8179f3.Select" hint-size="100%,60px" label="State" options="{{ stateOptions }}" value="{{ stateFilter }}" sc-camel-on-change="{{ onStateChange }}"></x-import>
+      </div>
+    </div>
+
+    <div style="border:var(--border-width-block) solid var(--ink-900);box-shadow:var(--shadow-block)">
+      <div style="display:grid;grid-template-columns:2.4fr 1.4fr 1fr 0.6fr 1fr;background:var(--ink-900);color:#fff;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase">
+        <div class="gg-th" style="padding:12px 16px" sc-camel-on-click="{{ sortBy('title') }}">Title {{ sortArrow.title }}</div>
+        <div class="gg-th" style="padding:12px 16px" sc-camel-on-click="{{ sortBy('type') }}">Type {{ sortArrow.type }}</div>
+        <div class="gg-th" style="padding:12px 16px" sc-camel-on-click="{{ sortBy('city') }}">City / State {{ sortArrow.city }}</div>
+        <div class="gg-th" style="padding:12px 16px" sc-camel-on-click="{{ sortBy('stars') }}">Stars {{ sortArrow.stars }}</div>
+        <div style="padding:12px 16px">Address</div>
+      </div>
+      <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+        <div>
+          <div class="gg-row" style="display:grid;grid-template-columns:2.4fr 1.4fr 1fr 0.6fr 1fr;border-top:2px solid var(--ink-900);cursor:pointer" sc-camel-on-click="{{ r.onToggle }}">
+            <div style="padding:14px 16px;font-family:var(--font-display);font-weight:700;font-size:14px">{{ r.title }}</div>
+            <div style="padding:14px 16px;font-family:var(--font-body);font-size:14px">{{ r.type }}</div>
+            <div style="padding:14px 16px;font-family:var(--font-body);font-size:14px">{{ r.city }}, {{ r.state }}</div>
+            <div style="padding:14px 16px;font-family:var(--font-mono);font-size:13px">{{ r.starDisplay }}</div>
+            <div style="padding:14px 16px;font-family:var(--font-mono);font-size:12px;opacity:.7">{{ r.address }}</div>
+          </div>
+          <sc-if value="{{ r.expanded }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:16px 20px;background:var(--paper-50);border-top:2px solid var(--ink-900);font-family:var(--font-body);font-size:15px;line-height:var(--leading-body)">{{ r.description }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:32px;text-align:center;font-family:var(--font-body);opacity:.6;border-top:2px solid var(--ink-900)">No listings match these filters.</div>
+      </sc-if>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+
+const LISTINGS = [
+  {id:1,title:"Sisters' Tavern",description:'A working-class lesbian bar operating for over a decade, known for its Sunday afternoon pool tournaments.',address:'214 Pike St',city:'Seattle',state:'WA',type:'Bar',stars:4},
+  {id:2,title:'Amelia Bookstore',description:'One of the longest-running feminist bookstores on the West Coast, hosting readings and a community bulletin board.',address:'1017 Valencia St',city:'San Francisco',state:'CA',type:'Bookstore',stars:5},
+  {id:3,title:"West Coast Women's Center",description:'A drop-in center offering counseling referrals and a lending library of feminist periodicals.',address:'4229 Sunset Blvd',city:'Los Angeles',state:'CA',type:"Women's Center",stars:4},
+  {id:4,title:'San Diego Dropsite',description:'A mail-forwarding contact listed under a private residence; address given only as a PO Box.',address:'PO Box 8842',city:'San Diego',state:'CA',type:'Dropsite (Mail Contact)',stars:3},
+  {id:5,title:'Rocky Mountain Retreat',description:'A seasonal land collective hosting summer gatherings and workshops outside Denver.',address:'Rural Route 2',city:'Denver',state:'CO',type:'Retreat/Land Collective',stars:4},
+  {id:6,title:'Twin Cities Switchboard',description:'A volunteer-run phone line providing referrals and crisis support, staffed evenings.',address:'812 Hennepin Ave',city:'Minneapolis',state:'MN',type:'Switchboard/Hotline',stars:3},
+  {id:7,title:"Chicago Women's Coffeehouse",description:'A monthly coffeehouse night with live music, held in the back room of a print shop.',address:'2027 W Belmont Ave',city:'Chicago',state:'IL',type:'Coffeehouse',stars:5},
+  {id:8,title:'Detroit Dropsite',description:'Listed as a general contact address; the guide notes it forwards mail rather than marking a venue.',address:'PO Box 1195',city:'Detroit',state:'MI',type:'Dropsite (Mail Contact)',stars:3},
+  {id:9,title:'The Anchor Bar',description:'A neighborhood bar near the waterfront, one of the few consistently listed across five editions.',address:'118 Superior St',city:'Toledo',state:'OH',type:'Bar',stars:4},
+  {id:10,title:'Cleveland Contact',description:'A general-area contact; the guide gives only the city center as a reference point.',address:'City center (general)',city:'Cleveland',state:'OH',type:'Dropsite (Mail Contact)',stars:2},
+  {id:11,title:'Labyris Books',description:'A cornerstone feminist bookstore and gathering space through the late 1970s and 1980s.',address:'373 6th Ave',city:'New York',state:'NY',type:'Bookstore',stars:5},
+  {id:12,title:"Boston Women's Center",description:'A multi-purpose community space hosting support groups, dances, and a resource library.',address:'46 Pleasant St',city:'Boston',state:'MA',type:'Community Center',stars:4},
+  {id:13,title:'Provincetown Guesthouse',description:'A seasonal guesthouse popular with summer visitors, listed with a discreet street address.',address:'22 Commercial St',city:'Provincetown',state:'MA',type:'Guesthouse/B&B',stars:5},
+  {id:14,title:'DC Legal Aid Collective',description:'Volunteer attorneys offering free consultations one evening a week.',address:'1734 Connecticut Ave NW',city:'Washington',state:'DC',type:'Legal Aid/Counseling',stars:4},
+  {id:15,title:'Atlanta Softball League',description:'An amateur softball league that doubled as a primary social network for the listing years.',address:'Piedmont Park (general)',city:'Atlanta',state:'GA',type:'Softball League',stars:3},
+  {id:16,title:'Crescent City Bar',description:'A French Quarter bar with a mixed clientele, noted for its jukebox and back patio.',address:'700 Bourbon St',city:'New Orleans',state:'LA',type:'Bar',stars:4},
+  {id:17,title:'Austin Print Shop',description:'A cooperative print shop that produced newsletters and event flyers for the local scene.',address:'General delivery',city:'Austin',state:'TX',type:'Print Shop',stars:3},
+  {id:18,title:'Houston Health Clinic',description:'A low-cost clinic offering confidential care one weekend a month.',address:'2101 Crawford St',city:'Houston',state:'TX',type:'Health Clinic',stars:4},
+  {id:19,title:'Miami Beach House',description:'An unofficial gathering beach, marked in the guide with a nearby cross-street rather than an address.',address:'Near 21st St (general)',city:'Miami',state:'FL',type:'Beach',stars:3},
+  {id:20,title:'Key West Archive',description:'A small private archive of newsletters and photographs, open to researchers by appointment.',address:'PO Box 4310',city:'Key West',state:'FL',type:'Archive/Library',stars:5}
+];
+const TYPES = [...new Set(LISTINGS.map(l => l.type))].sort();
+const STATES = [...new Set(LISTINGS.map(l => l.state))].sort();
+
+class Component extends DCLogic {
+  state = { query: '', typeFilter: 'All Types', stateFilter: 'All States', sortKey: 'title', sortDir: 'asc', expandedId: null };
+
+  filteredSorted() {
+    const q = this.state.query.trim().toLowerCase();
+    let rows = LISTINGS.filter(l => {
+      if (this.state.typeFilter !== 'All Types' && l.type !== this.state.typeFilter) return false;
+      if (this.state.stateFilter !== 'All States' && l.state !== this.state.stateFilter) return false;
+      if (q && !(l.title.toLowerCase().includes(q) || l.city.toLowerCase().includes(q))) return false;
+      return true;
+    });
+    const { sortKey, sortDir } = this.state;
+    rows = rows.slice().sort((a, b) => {
+      let av = a[sortKey], bv = b[sortKey];
+      if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
+      if (av < bv) return sortDir === 'asc' ? -1 : 1;
+      if (av > bv) return sortDir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    return rows;
+  }
+
+  renderVals() {
+    const rows = this.filteredSorted();
+    const arrow = (key) => this.state.sortKey === key ? (this.state.sortDir === 'asc' ? '\u2191' : '\u2193') : '';
+    return {
+      query: this.state.query,
+      typeFilter: this.state.typeFilter,
+      stateFilter: this.state.stateFilter,
+      typeOptions: ['All Types', ...TYPES],
+      stateOptions: ['All States', ...STATES],
+      resultCount: rows.length,
+      noResults: rows.length === 0,
+      sortArrow: { title: arrow('title'), type: arrow('type'), city: arrow('city'), stars: arrow('stars') },
+      rows: rows.map(r => ({
+        ...r,
+        starDisplay: '\u2605'.repeat(r.stars) + '\u2606'.repeat(5 - r.stars),
+        expanded: this.state.expandedId === r.id,
+        onToggle: () => this.setState(s => ({ expandedId: s.expandedId === r.id ? null : r.id }))
+      })),
+      onQueryChange: e => this.setState({ query: e.target.value }),
+      onTypeChange: e => this.setState({ typeFilter: e.target.value }),
+      onStateChange: e => this.setState({ stateFilter: e.target.value }),
+      sortBy: (key) => () => this.setState(s => ({ sortKey: key, sortDir: s.sortKey === key && s.sortDir === 'asc' ? 'desc' : 'asc' }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
